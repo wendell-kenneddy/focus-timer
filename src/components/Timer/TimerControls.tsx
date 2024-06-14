@@ -14,6 +14,15 @@ interface TimerControlsProps {
   initialTime: number;
 }
 
+export interface TimerData {
+  clockStatus: ClockStatus;
+  alarmStatus: AlarmStatus;
+  totalDuration: number;
+  currentDuration: number;
+}
+export type ClockStatus = "paused" | "running" | "inactive";
+export type AlarmStatus = "muted" | "unmuted";
+
 export function TimerControls({ initialTime }: TimerControlsProps) {
   const [clockStatus, setClockStatus] = useState<"paused" | "running" | "ended">("ended");
   const [alarmStatus, setAlarmStatus] = useState<"muted" | "unmuted">("unmuted");
